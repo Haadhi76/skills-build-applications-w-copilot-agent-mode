@@ -26,8 +26,11 @@ SECRET_KEY = "django-insecure-gy4bc8muo5b8jt0of0t3-fkjjmvk3#vgrd1y+2*-j)nelgq%r0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'legendary-acorn-9v4j9vqxj9rcpw9q-8000.app.github.dev']
 
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
 
 # Application definition
 
@@ -86,6 +89,13 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': 27017,
     }
+}
+
+
+# Temporarily disable authentication for testing purposes
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_PERMISSION_CLASSES': [],
 }
 
 
